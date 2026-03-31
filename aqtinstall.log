@@ -1,0 +1,9 @@
+2026-03-30 10:27:51,571 - aqt.main - INFO - installer 137541065519104 aqtinstall(aqt) v3.3.0 on Python 3.10.12 [CPython GCC 11.4.0]
+2026-03-30 10:27:51,575 - aqt.helper - DEBUG - helper 137541065519104 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_680/qt6_680/Updates.xml.sha256
+2026-03-30 10:28:21,169 - aqt.helper - DEBUG - helper 137541065519104 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/linux_x64/extensions/qtwebengine/680/x86_64/Updates.xml.sha256
+2026-03-30 10:28:24,183 - aqt.archives - INFO - archives 137541065519104 Found extension qtwebengine
+2026-03-30 10:28:24,184 - aqt.helper - DEBUG - helper 137541065519104 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/linux_x64/extensions/qtpdf/680/x86_64/Updates.xml.sha256
+2026-03-30 10:28:59,059 - aqt.archives - INFO - archives 137541065519104 Found extension qtpdf
+2026-03-30 10:28:59,073 - aqt.main - ERROR - installer 137541065519104 The packages ['qt_base'] were not found while parsing XML of package information!
+==============================Suggested follow-up:==============================
+* Please use 'aqt list-qt linux desktop --arch 6.8.0' to show architectures available.
