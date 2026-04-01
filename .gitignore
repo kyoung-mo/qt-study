@@ -13,3 +13,5 @@ CMakeLists.txt.user
 
 # 압축파일
 *.zip
+build/
+*.user
