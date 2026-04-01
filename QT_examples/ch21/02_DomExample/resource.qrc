@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>dom.xml</file>
+    </qresource>
+</RCC>

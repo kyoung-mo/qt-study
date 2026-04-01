@@ -1,0 +1,11 @@
+<node>
+  <interface name="local.DBusChat">
+    <signal name="message">
+      <arg name="nickname" type="s" direction="out"/>
+      <arg name="text" type="s" direction="out"/>
+    </signal>
+    <signal name="action">
+      <arg name="nickname" type="s" direction="out"/>
+      <arg name="text" type="s" direction="out"/>
+    </signal>
+</node>

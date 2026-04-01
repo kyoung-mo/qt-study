@@ -1,1 +1,15 @@
+# 빌드 결과물
 build-*/
+
+# 바이너리
+*.exe
+*.dll
+*.out
+*.o
+
+# IDE 설정
+*.user
+CMakeLists.txt.user
+
+# 압축파일
+*.zip
