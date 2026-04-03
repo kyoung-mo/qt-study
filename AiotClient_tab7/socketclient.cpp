@@ -8,14 +8,14 @@ SocketClient::SocketClient(QWidget *parent)
     connect(pQTcpSocket, SIGNAL(connected()), this, SLOT(socketConnectServerSlot()));
     connect(pQTcpSocket, SIGNAL(disconnected()), this, SLOT(socketClosedServerSlot()));
     connect(pQTcpSocket, SIGNAL(readyRead()), this, SLOT(socketReadDataSlot()));
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0) // 5version block
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     connect(pQTcpSocket, SIGNAL(errorOccurred(QAbstractSocket::SocketError)), this, SLOT(socketErrorSlot()));
 #else
     connect(pQTcpSocket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(socketErrorSlot()));
 #endif
 }
 
-void SocketClient::connectToServerSlot(bool &bFlag) // call int tab2
+void SocketClient::connectToServerSlot(bool &bFlag)
 {
     QString strHostIp;
     strHostIp = QInputDialog::getText(this,"Host Ip", "Input Server IP",QLineEdit::Normal,SERVERIP, &bFlag);
@@ -25,7 +25,6 @@ void SocketClient::connectToServerSlot(bool &bFlag) // call int tab2
             pQTcpSocket->connectToHost(SERVERIP, SERVERPORT);
         else
             pQTcpSocket->connectToHost(strHostIp, SERVERPORT);
-
     }
 
 }
@@ -33,12 +32,12 @@ void SocketClient::connectToServerSlot(bool &bFlag) // call int tab2
 
 void SocketClient::socketReadDataSlot()
 {
-    QByteArray byteRecvData;  // raw data = byte
+    QByteArray byteRecvData;
     QString strRecvData;
     if(pQTcpSocket->bytesAvailable() > BLOCK_SIZE)
         return;
     byteRecvData = pQTcpSocket->read(BLOCK_SIZE);
-    strRecvData = QString::fromLocal8Bit(byteRecvData);  // utf-8 change
+    strRecvData = QString::fromLocal8Bit(byteRecvData);
 //    qDebug() << strRecvData;
     emit socketRecvDataSig(strRecvData);
 

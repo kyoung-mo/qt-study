@@ -1,3 +1,5 @@
+QT += widgets network
+
 CONFIG += c++17
 
 # You can make your code fail to compile if it uses deprecated APIs.
@@ -11,7 +13,7 @@ SOURCES += \
     tab1devicecontrol.cpp \
     tab2socketclient.cpp \
     tab3controlpannel.cpp \
-    tab6camviewer.cpp \
+    tab6webcamera.cpp \
     tab7camopencv.cpp \
     webcamthread.cpp
 
@@ -21,7 +23,7 @@ HEADERS += \
     tab1devicecontrol.h \
     tab2socketclient.h \
     tab3controlpannel.h \
-    tab6camviewer.h \
+    tab6webcamera.h \
     tab7camopencv.h \
     webcamthread.h
 
@@ -30,10 +32,8 @@ FORMS += \
     tab1devicecontrol.ui \
     tab2socketclient.ui \
     tab3controlpannel.ui \
-    tab6camviewer.ui \
+    tab6webcamera.ui \
     tab7camopencv.ui
-
-QT += widgets network
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -42,5 +42,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     Images.qrc
+
 INCLUDEPATH += /usr/local/include/opencv4
 LIBS += `pkg-config opencv4 --cflags --libs`

@@ -6,7 +6,6 @@ Tab1DeviceControl::Tab1DeviceControl(QWidget *parent)
     , ui(new Ui::Tab1DeviceControl)
 {
     ui->setupUi(this);
-
     int keyCount = ui->gridLayout->rowCount() * ui->gridLayout->columnCount();
     lcdDataKey = 0;
     pQTimer = new QTimer(this);
@@ -83,98 +82,29 @@ void Tab1DeviceControl::updateCheckBoxSlot(int keyNum)
     lcdDataKey = lcdDataKey ^ (0x01 << (keyNum - 1));
     ui->pLcdNumberKey->display(lcdDataKey);
 }
-
-
-
-void Tab1DeviceControl::on_pDialLed_valueChanged(int dialData)
+void Tab1DeviceControl::on_pDialLed_valueChanged(int value)
 {
-    QString dialString="[KYM_LIN]DIAL@+"+QString::number(dialData);
-    emit on_pDialLed_valueChanged_sig(dialString);
+    //[KYM_LIN]DIAL@255
+    QString strData = "[KYM_LIN]DIAL@" + QString::number(value);
+    emit socketSendDataSig(strData);
 }
 
-void Tab1DeviceControl::activateCheckBoxSlot(QStringList& recvData)
+void Tab1DeviceControl::tab1RecvDataSlot(QStringList& strList)
 {
+    bool keyFlag;
+    int keyNumber = strList[3].toInt();
 
-    qDebug() << recvData[3] << recvData[4];
-    if(recvData[3]=="1")
-    {
-        if(recvData[4]=="ON")
-        {
-            emit ui->pCBkey1->setChecked(true);
-        }
-        else if(recvData[4]=="OFF")
-        {
-            ui->pCBkey1->setChecked(false);
-        }
-    }
-    else if(recvData[3]=="2")
-    {
-        if(recvData[4]=="ON")
-        {
-            ui->pCBkey2->setChecked(true);
-        }
-        else if(recvData[4]=="OFF")
-        {
-            ui->pCBkey2->setChecked(false);
-        }
-    }
-    else if(recvData[3]=="3")
-    {
-        if(recvData[4]=="ON")
-        {
-            ui->pCBkey3->setChecked(true);
-        }
-        else if(recvData[4]=="OFF")
-        {
-            ui->pCBkey3->setChecked(false);
-        }
-    }
-    else if(recvData[3]=="4")
-    {
-        if(recvData[4]=="ON")
-        {
-            ui->pCBkey4->setChecked(true);
-        }
-        else if(recvData[4]=="OFF")
-        {
-            ui->pCBkey4->setChecked(false);
-        }
-    }
-    else if(recvData[3]=="5")
-    {
-        if(recvData[4]=="ON")
-        {
-            ui->pCBkey5->setChecked(true);
-        }
-        else if(recvData[4]=="OFF")
-        {
-            ui->pCBkey5->setChecked(false);
-        }
-    }
-    else if(recvData[3]=="6")
-    {
-        if(recvData[4]=="ON")
-        {
-            ui->pCBkey6->setChecked(true);
-        }
-        else if(recvData[4]=="OFF")
-        {
-            ui->pCBkey6->setChecked(false);
-        }
-    }
-    else if(recvData[3]=="7")
-    {
-        if(recvData[4]=="ON") ui->pCBkey7->setChecked(true);
-        else if(recvData[4]=="OFF") ui->pCBkey7->setChecked(false);
-    }
-    else if(recvData[3]=="8")
-    {
-        if(recvData[4]=="ON") ui->pCBkey8->setChecked(true);
-        else if(recvData[4]=="OFF") ui->pCBkey8->setChecked(false);
-    }
-    int keyNum=recvData[3].toInt();
-    updateCheckBoxSlot(keyNum);
+    if(keyNumber < 1 || 8 < keyNumber)
+        return;
+    else
+        keyNumber--;
+    if(strList[4] == "ON")
+        keyFlag = true;
+    else
+        keyFlag = false;
 
+//    qDebug() << keyNumber;
+//    qDebug() << keyFlag;
+    pQCheckBox[keyNumber]->setChecked(keyFlag);
+    updateCheckBoxSlot(++keyNumber);
 }
-
-

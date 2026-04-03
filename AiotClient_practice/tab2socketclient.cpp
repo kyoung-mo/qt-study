@@ -10,6 +10,7 @@ Tab2SocketClient::Tab2SocketClient(QWidget *parent)
     ui->pPBsend->setEnabled(false);
 
     connect(pSocketClient, SIGNAL(socketRecvDataSig(QString)), this, SLOT(updateRecvDataSlot(QString)));
+    connect(pSocketClient, SIGNAL(socketRecvDataSig(QString)), this, SLOT(socketWriteKeyDataSig(QString)));
 }
 
 Tab2SocketClient::~Tab2SocketClient()
@@ -97,20 +98,17 @@ void Tab2SocketClient::socketWriteKeyDataSig(QString strSendData)
     strSendData.replace("]","@");
     QStringList strList = strSendData.split("@");
 
-    //strList[0]="" ,
-    //strList[1]=KYM_LIN" ,
-    //strList[2]="1~8"
-    //strList[3]="ON/OFF"
+
 
     //index return
     //if((strList[2].indexOf("1")==0) || (strList[2].indexOf("2")==0))// L > index 0 return
-
-    qDebug() << strList[2];
+    if(strList.size()<5) return;
     qDebug() << strList[3];
+    qDebug() << strList[4];
 
-    if(((strList[2].indexOf("1")==0) || (strList[2].indexOf("2")==0))||((strList[2].indexOf("3")==0) || (strList[2].indexOf("4")==0))||((strList[2].indexOf("5")==0) || (strList[2].indexOf("6")==0))||((strList[2].indexOf("7")==0) || (strList[2].indexOf("8")==0)))
+    if(((strList[3].indexOf("1")==0) || (strList[3].indexOf("2")==0))||((strList[3].indexOf("3")==0) || (strList[3].indexOf("4")==0))||((strList[3].indexOf("5")==0) || (strList[3].indexOf("6")==0))||((strList[3].indexOf("7")==0) || (strList[3].indexOf("8")==0)))
     {
-        if((strList[3].indexOf("ON")==0)||(strList[3].indexOf("OFF")==0))
+        if((strList[4].indexOf("ON")==0)||(strList[4].indexOf("OFF")==0))
         {
             emit tab1SendKeyData(strList);
         }
