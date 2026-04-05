@@ -1,0 +1,30 @@
+{
+	"BUILD_DIR" : "/home/ubuntu/qt-class/QT-examples/ch05/00_QCheckBox/build/Desktop_Qt_6_8_3-Debug/00_QCheckBox_autogen",
+	"CMAKE_BINARY_DIR" : "/home/ubuntu/qt-class/QT-examples/ch05/00_QCheckBox/build/Desktop_Qt_6_8_3-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/ubuntu/qt-class/QT-examples/ch05/00_QCheckBox/build/Desktop_Qt_6_8_3-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/ubuntu/qt-class/QT-examples/ch05/00_QCheckBox",
+	"CMAKE_SOURCE_DIR" : "/home/ubuntu/qt-class/QT-examples/ch05/00_QCheckBox",
+	"CROSS_CONFIG" : false,
+	"GENERATOR" : "Ninja",
+	"INCLUDE_DIR" : "/home/ubuntu/qt-class/QT-examples/ch05/00_QCheckBox/build/Desktop_Qt_6_8_3-Debug/00_QCheckBox_autogen/include",
+	"INPUTS" : 
+	[
+		"/home/ubuntu/qt-class/QT-examples/ch05/00_QCheckBox/resources/mail.png",
+		"/home/ubuntu/qt-class/QT-examples/ch05/00_QCheckBox/resources/calendar.png",
+		"/home/ubuntu/qt-class/QT-examples/ch05/00_QCheckBox/resources/browser.png",
+		"/home/ubuntu/qt-class/QT-examples/ch05/00_QCheckBox/resources/users.png",
+		"/home/ubuntu/qt-class/QT-examples/ch05/00_QCheckBox/resources/chat.png",
+		"/home/ubuntu/qt-class/QT-examples/ch05/00_QCheckBox/resources/editor.png"
+	],
+	"LOCK_FILE" : "/home/ubuntu/qt-class/QT-examples/ch05/00_QCheckBox/build/Desktop_Qt_6_8_3-Debug/CMakeFiles/00_QCheckBox_autogen.dir/AutoRcc_resources_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "resources" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_resources.cpp",
+	"RCC_EXECUTABLE" : "/home/ubuntu/Qt/6.8.3/gcc_64/libexec/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/ubuntu/qt-class/QT-examples/ch05/00_QCheckBox/build/Desktop_Qt_6_8_3-Debug/CMakeFiles/00_QCheckBox_autogen.dir/AutoRcc_resources_EWIEGA46WW_Used.txt",
+	"SOURCE" : "/home/ubuntu/qt-class/QT-examples/ch05/00_QCheckBox/resources.qrc",
+	"USE_BETTER_GRAPH" : true,
+	"VERBOSITY" : 0
+}

@@ -1,0 +1,9 @@
+# ninja log v6
+3	478	1775008134584180283	02_QCommandLinkButton_autogen/timestamp	3cbd57b96b88aa31
+3	478	1775008134584180283	02_QCommandLinkButton_autogen/mocs_compilation.cpp	3cbd57b96b88aa31
+3	478	1775008134584180283	/home/ubuntu/qt-class/QT-examples/ch05/02_QCommandLinkButton/build/02_QCommandLinkButton_autogen/timestamp	3cbd57b96b88aa31
+3	478	1775008134584180283	/home/ubuntu/qt-class/QT-examples/ch05/02_QCommandLinkButton/build/02_QCommandLinkButton_autogen/mocs_compilation.cpp	3cbd57b96b88aa31
+487	2674	1775008134605180369	CMakeFiles/02_QCommandLinkButton.dir/widget.cpp.o	f7b4fd8bd3e9b8b1
+479	2746	1775008134595180328	CMakeFiles/02_QCommandLinkButton.dir/02_QCommandLinkButton_autogen/mocs_compilation.cpp.o	5e93146927132b8a
+485	2769	1775008134603180361	CMakeFiles/02_QCommandLinkButton.dir/main.cpp.o	7313fa845120784b
+2770	3242	1775008136889189655	02_QCommandLinkButton	528c63685dd35699

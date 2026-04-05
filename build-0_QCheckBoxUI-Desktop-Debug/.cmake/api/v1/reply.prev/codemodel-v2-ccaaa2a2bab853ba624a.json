@@ -1,0 +1,69 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "0_QCheckBoxUI",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "0_QCheckBoxUI::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-0_QCheckBoxUI-Debug-c1b8c88f8a8ee3e1ccf0.json",
+					"name" : "0_QCheckBoxUI",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "0_QCheckBoxUI_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-0_QCheckBoxUI_autogen-Debug-ac5619286de5d9fcf01c.json",
+					"name" : "0_QCheckBoxUI_autogen",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/ubuntu/qt-class/build-0_QCheckBoxUI-Desktop-Debug",
+		"source" : "/home/ubuntu/qt-class/0_QCheckBoxUI"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-6db7485f49a79b59ad6f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "00_QCheckBox",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "00_QCheckBox::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-00_QCheckBox-Debug-24bb23ecd6ac193ff9d2.json",
+					"name" : "00_QCheckBox",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "00_QCheckBox_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-00_QCheckBox_autogen-Debug-dc998cbc8f78d805fa78.json",
+					"name" : "00_QCheckBox_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "00_QCheckBox_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-00_QCheckBox_autogen_timestamp_deps-Debug-8b4edac3b7780c94c965.json",
+					"name" : "00_QCheckBox_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/ubuntu/qt-class/QT-examples/ch05/00_QCheckBox/build/Desktop_Qt_6_8_3-Debug",
+		"source" : "/home/ubuntu/qt-class/QT-examples/ch05/00_QCheckBox"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

@@ -1,17 +1,36 @@
-# 빌드 결과물
-build-*/
+# 빌드 바이너리
+AiotClient_tab12367/AiotClient
+CamViewerThread/CamViewerThread
+firstOpencv/first
 
-# 바이너리
-*.exe
-*.dll
-*.out
-*.o
+# Makefile (빌드 산출물)
+AiotClient_tab12367/Makefile
+CamViewerThread/Makefile
 
-# IDE 설정
-*.user
-CMakeLists.txt.user
+# moc 생성 파일
+AiotClient_tab12367/moc_*.cpp
+CamViewerThread/moc_*.cpp
 
-# 압축파일
-*.zip
-build/
-*.user
+# qrc 생성 파일
+AiotClient_tab12367/qrc_*.cpp
+CamViewerThread/qrc_*.cpp
+
+# ui 생성 헤더
+AiotClient_tab12367/ui_*.h
+CamViewerThread/ui_*.h
+
+# qmake 캐시
+AiotClient_tab12367/.qmake.stash
+AiotClient_tab12367/.qtcreator/
+CamViewerThread/.qmake.stash
+
+# 스냅샷 파일
+AiotClient_tab12367/cam_*.jpg
+CamViewerThread/cam_*.jpg
+
+# mjpg-streamer cmake 빌드 산출물
+mjpg-streamer-master/_build/
+
+# vi 임시 파일
+*.swp
+*.swo

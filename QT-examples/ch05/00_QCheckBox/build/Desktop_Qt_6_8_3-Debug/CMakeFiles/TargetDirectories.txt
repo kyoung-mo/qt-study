@@ -1,0 +1,9 @@
+/home/ubuntu/qt-class/QT-examples/ch05/00_QCheckBox/build/Desktop_Qt_6_8_3-Debug/CMakeFiles/00_QCheckBox.dir
+/home/ubuntu/qt-class/QT-examples/ch05/00_QCheckBox/build/Desktop_Qt_6_8_3-Debug/CMakeFiles/edit_cache.dir
+/home/ubuntu/qt-class/QT-examples/ch05/00_QCheckBox/build/Desktop_Qt_6_8_3-Debug/CMakeFiles/rebuild_cache.dir
+/home/ubuntu/qt-class/QT-examples/ch05/00_QCheckBox/build/Desktop_Qt_6_8_3-Debug/CMakeFiles/list_install_components.dir
+/home/ubuntu/qt-class/QT-examples/ch05/00_QCheckBox/build/Desktop_Qt_6_8_3-Debug/CMakeFiles/install.dir
+/home/ubuntu/qt-class/QT-examples/ch05/00_QCheckBox/build/Desktop_Qt_6_8_3-Debug/CMakeFiles/install/local.dir
+/home/ubuntu/qt-class/QT-examples/ch05/00_QCheckBox/build/Desktop_Qt_6_8_3-Debug/CMakeFiles/install/strip.dir
+/home/ubuntu/qt-class/QT-examples/ch05/00_QCheckBox/build/Desktop_Qt_6_8_3-Debug/CMakeFiles/00_QCheckBox_autogen_timestamp_deps.dir
+/home/ubuntu/qt-class/QT-examples/ch05/00_QCheckBox/build/Desktop_Qt_6_8_3-Debug/CMakeFiles/00_QCheckBox_autogen.dir

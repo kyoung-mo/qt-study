@@ -1,0 +1,2 @@
+set(__QT_DEPLOY_TARGET_02_QCommandLinkButton_FILE /home/ubuntu/qt-class/QT-examples/ch05/02_QCommandLinkButton/build/02_QCommandLinkButton)
+set(__QT_DEPLOY_TARGET_02_QCommandLinkButton_TYPE EXECUTABLE)

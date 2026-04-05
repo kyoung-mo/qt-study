@@ -1,0 +1,4 @@
+/home/ubuntu/qt-class/build-0_QCheckBoxUI-Desktop-Debug/CMakeFiles/0_QCheckBoxUI.dir
+/home/ubuntu/qt-class/build-0_QCheckBoxUI-Desktop-Debug/CMakeFiles/edit_cache.dir
+/home/ubuntu/qt-class/build-0_QCheckBoxUI-Desktop-Debug/CMakeFiles/rebuild_cache.dir
+/home/ubuntu/qt-class/build-0_QCheckBoxUI-Desktop-Debug/CMakeFiles/0_QCheckBoxUI_autogen.dir

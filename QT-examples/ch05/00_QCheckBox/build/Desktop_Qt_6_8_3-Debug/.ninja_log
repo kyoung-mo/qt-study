@@ -1,0 +1,12 @@
+# ninja log v6
+2	516	1775007578544038453	00_QCheckBox_autogen/timestamp	53623a7b64b5a786
+2	516	1775007578544038453	00_QCheckBox_autogen/mocs_compilation.cpp	53623a7b64b5a786
+2	516	1775007578544038453	/home/ubuntu/qt-class/QT-examples/ch05/00_QCheckBox/build/Desktop_Qt_6_8_3-Debug/00_QCheckBox_autogen/timestamp	53623a7b64b5a786
+2	516	1775007578544038453	/home/ubuntu/qt-class/QT-examples/ch05/00_QCheckBox/build/Desktop_Qt_6_8_3-Debug/00_QCheckBox_autogen/mocs_compilation.cpp	53623a7b64b5a786
+517	552	1775007578585038955	00_QCheckBox_autogen/EWIEGA46WW/qrc_resources.cpp	1f8245dc36cc5e94
+517	552	1775007578585038955	/home/ubuntu/qt-class/QT-examples/ch05/00_QCheckBox/build/Desktop_Qt_6_8_3-Debug/00_QCheckBox_autogen/EWIEGA46WW/qrc_resources.cpp	1f8245dc36cc5e94
+556	665	1775007578599039127	CMakeFiles/00_QCheckBox.dir/00_QCheckBox_autogen/EWIEGA46WW/qrc_resources.cpp.o	9f6c2d6b1ac4799c
+554	3865	1775007578597039103	CMakeFiles/00_QCheckBox.dir/widget.cpp.o	a5612b36113fa96
+552	3925	1775007578595039078	CMakeFiles/00_QCheckBox.dir/00_QCheckBox_autogen/mocs_compilation.cpp.o	35f959a6129665b9
+553	4020	1775007578596039090	CMakeFiles/00_QCheckBox.dir/main.cpp.o	de38e183fd443155
+4020	4624	1775007582063081437	00_QCheckBox	15376c81edcdce1c

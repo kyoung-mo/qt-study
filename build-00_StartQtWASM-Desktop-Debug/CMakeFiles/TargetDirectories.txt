@@ -1,0 +1,4 @@
+/home/ubuntu/qt-class/build-00_StartQtWASM-Desktop-Debug/CMakeFiles/00_StartQtWASM.dir
+/home/ubuntu/qt-class/build-00_StartQtWASM-Desktop-Debug/CMakeFiles/edit_cache.dir
+/home/ubuntu/qt-class/build-00_StartQtWASM-Desktop-Debug/CMakeFiles/rebuild_cache.dir
+/home/ubuntu/qt-class/build-00_StartQtWASM-Desktop-Debug/CMakeFiles/00_StartQtWASM_autogen.dir
