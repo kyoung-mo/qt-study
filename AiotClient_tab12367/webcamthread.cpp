@@ -1,27 +1,35 @@
 #include "webcamthread.h"
 
+
+int WebCamThread::CAM_MODE=0;
+int WebCamThread::CAM_FUNC_MODE_OFF=0;
+int WebCamThread::RGBCLASSIFY_MODE=1;
+int WebCamThread::SECURITY_MODE=2;
+
 WebCamThread::WebCamThread(QObject *parent)
     : QThread(parent)
 {
     cnt = 0;
+    saveFlag=0;
     strColor="NONE";
     strColorPre = "";
     camViewFlag = false;
-    rgbClassifyFlag = false;
+    timerFlag = false;
     pQTimer = new QTimer(this);
     connect(pQTimer, SIGNAL(timeout()), this, SLOT(rgbClassifySlot()));
 }
 
 void WebCamThread::run()
 {
+    int pixelCnt=0;
     VideoCapture  capture(0);
     if (!capture.isOpened())
     {
         cout << "카메라가 연결되지 않았습니다." << endl;
         exit(1);
     }
-//    capture.set(CAP_PROP_FRAME_WIDTH,320);
-//    capture.set(CAP_PROP_FRAME_HEIGHT,240);
+    capture.set(CAP_PROP_FRAME_WIDTH,320);
+    capture.set(CAP_PROP_FRAME_HEIGHT,240);
     while(camViewFlag) {
 
         capture.read(frame);
@@ -32,28 +40,70 @@ void WebCamThread::run()
         cvtColor(frame, frameQt, COLOR_BGR2RGB);
         int x = frameQt.cols/2;
         int y = frameQt.rows/2;
-        if(rgbClassifyFlag)
+        if(timerFlag)
         {
-            Scalar meanHsv;
-            Mat frameRoi, hsvImage;
-            frameRoi = frame(Rect((x-32), (y-32), 64, 64));
-            cvtColor(frameRoi, hsvImage, COLOR_BGR2HSV);
-            meanHsv = mean(hsvImage);
-//            qDebug() << " meanHSV H :" << meanHsv[0] << " meanHSV S :" << meanHsv[1] << " meanHSV V :" << meanHsv[2] ;  //색상
-
-            if( 170 <= meanHsv[0] || meanHsv[0] < 10)   //Red
-                strColor = "RED";
-            else if( 50 <= meanHsv[0] && meanHsv[0] < 70)   //Green
-                strColor = "GREEN";
-            else if( 110 <= meanHsv[0] && meanHsv[0] < 130) //Blue
-                strColor = "BLUE";
-            else
-                strColor = "NONE";
-            rgbClassifyFlag = false;
-            if(strColor != strColorPre)
+            if(CAM_MODE == RGBCLASSIFY_MODE)
             {
-                emit socketSendDataSig("[KYM_LIN]COLOR@"+strColor);
-                strColorPre = strColor;
+                Scalar meanHsv;
+                Mat frameRoi, hsvImage;
+                frameRoi = frame(Rect((x-32), (y-32), 64, 64));
+                cvtColor(frameRoi, hsvImage, COLOR_BGR2HSV);
+                meanHsv = mean(hsvImage);
+    //            qDebug() << " meanHSV H :" << meanHsv[0] << " meanHSV S :" << meanHsv[1] << " meanHSV V :" << meanHsv[2] ;  //색상
+
+                if( 170 <= meanHsv[0] || meanHsv[0] < 10)   //Red
+                    strColor = "RED";
+                else if( 50 <= meanHsv[0] && meanHsv[0] < 70)   //Green
+                    strColor = "GREEN";
+                else if( 110 <= meanHsv[0] && meanHsv[0] < 130) //Blue
+                    strColor = "BLUE";
+                else
+                    strColor = "NONE";
+//                timerFlag = false;
+                if(strColor != strColorPre)
+                {
+                    emit socketSendDataSig("[KYM_LIN]COLOR@"+strColor);
+                    strColorPre = strColor;
+                }
+            }
+            else if(CAM_MODE == SECURITY_MODE)
+            {
+                if(!saveFlag)
+                {
+                    saveFlag = 1;
+                    securityFrame = frame.clone();
+                    emit socketSendDataSig("[HM_CON]GASOFF");
+                }
+                else
+                {
+                    saveFlag=0;
+                    securityFrame = abs(securityFrame - frame);
+                    uchar* imagePtr = (uchar*)securityFrame.data;
+                    for(int y=0;y<securityFrame.rows;y++)
+                    {
+                        for(int x=0;x<securityFrame.cols;x++)
+                        {
+                            uchar b= imagePtr[y*securityFrame.step + x * securityFrame.elemSize()+ 0];
+                            uchar g= imagePtr[y*securityFrame.step + x * securityFrame.elemSize()+ 1];
+                            uchar r= imagePtr[y*securityFrame.step + x * securityFrame.elemSize()+ 2];
+                            if(b>30 && g > 30 && r > 30)
+                            {
+                                pixelCnt++;
+                                if(pixelCnt >= (frame.cols*frame.rows)*0.1) // different image logic
+                                {
+                                    qDebug() << "pixelCnt >=17280 : " << pixelCnt;
+
+                                    emit socketSendDataSig("[HM_CON]INTRUDER");
+                                    pixelCnt=0;
+                                    QThread::msleep(200);
+                                    emit socketSendDataSig("[HM_CON]GASON");
+                                    break;
+                                }
+                            }
+                        }
+                        if(pixelCnt >= (frame.cols*frame.rows)*0.1) break;
+                    }
+                }
             }
         }
         put_string(frameQt, strColor.toStdString(), Point(10, 40));
@@ -93,22 +143,25 @@ void WebCamThread::snapShot()
     qImage.save(QString::fromStdString(fname),"JPG",80);
 }
 
-void WebCamThread::rgbTimerStart()
+void WebCamThread::rgbTimerStart(int mode)
 {
+    CAM_MODE=mode;
     pQTimer->start(1000);
-//    qDebug() << "start" ;
+    qDebug() << "start" ;
 }
 
-void WebCamThread::rgbTimerStop()
+void WebCamThread::rgbTimerStop(int mode)
 {
     if(pQTimer->isActive())
+    {
         pQTimer->stop();
-
-//    qDebug() << "stop" ;
+        CAM_MODE=mode;
+    }
+    qDebug() << "stop" ;
 }
 
 void WebCamThread::rgbClassifySlot()
 {
-    rgbClassifyFlag = true;
+    timerFlag = true;
 
 }

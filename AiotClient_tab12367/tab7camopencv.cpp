@@ -14,6 +14,12 @@ Tab7CamOpencv::Tab7CamOpencv(QWidget *parent)
 
 Tab7CamOpencv::~Tab7CamOpencv()
 {
+    if(pWebCamThread->isRunning())
+    {
+        pWebCamThread->camViewFlag = false;
+        pWebCamThread->quit();
+        pWebCamThread->wait(); // 완전 종료 대기
+    }
     delete ui;
 }
 
@@ -47,14 +53,42 @@ void Tab7CamOpencv::on_pPBcamStart_clicked(bool checked)
 }
 
 
-void Tab7CamOpencv::on_pCBrgb_clicked(bool checked)
-{
-    if(checked)
-        pWebCamThread->rgbTimerStart();
-    else
-        pWebCamThread->rgbTimerStop();
-}
+//void Tab7CamOpencv::on_pCBrgb_clicked(bool checked)
+//{
+//    if(checked)
+//        pWebCamThread->rgbTimerStart();
+//    else
+//        pWebCamThread->rgbTimerStop();
+//}
+
+
 WebCamThread* Tab7CamOpencv::getpWebCamThread()
 {
     return pWebCamThread;
 }
+
+void Tab7CamOpencv::on_pCBrgb_checkStateChanged(const Qt::CheckState &arg1)
+{
+    if(arg1==Qt::Unchecked)
+    {
+        qDebug() << "on_pCrgb_checkStateChanged(const QT::CheckState &arg1==Qt::Unchecked)";
+
+        pWebCamThread->rgbTimerStop(WebCamThread::CAM_FUNC_MODE_OFF);
+        ui->pCBrgb->setText("CamMode Off");
+    }
+    else if(arg1==Qt::PartiallyChecked)
+    {
+        qDebug() << "on_pCrgb_checkStateChanged(const QT::CheckState &arg1==Qt::PartiallyChecked)";
+
+        pWebCamThread->rgbTimerStart(WebCamThread::RGBCLASSIFY_MODE);
+        ui->pCBrgb->setText("RGB Mode");
+    }
+    else if(arg1==Qt::Checked)
+    {
+        qDebug() << "on_pCrgb_checkStateChanged(const QT::CheckState &arg1==Qt::Checked)";
+
+        pWebCamThread->rgbTimerStart(WebCamThread::SECURITY_MODE);
+        ui->pCBrgb->setText("Security Mode");
+    }
+}
+

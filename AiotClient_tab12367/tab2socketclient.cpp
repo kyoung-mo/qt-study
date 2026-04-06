@@ -57,8 +57,12 @@ void Tab2SocketClient::updateRecvDataSlot(QString strRecvData)
 
     if(strList[2] == "KEY")
         emit tab1RecvDataSig(strList);
-    else if((strList[2].indexOf("LAMP") == 0) || (strList[2].indexOf("PLUG") == 0))
+    else if((strList[2].indexOf("LAMP") == 0) || (strList[2].indexOf("GAS") == 0))
         emit tab3RecvDataSig(strList);
+    else if(strList[2] == "SENSOR")
+        emit tab4RecvDataSig(strList);
+    else if(strList[2] == "SNAPSHOT")
+        emit tab6RecvDataSig(strList);
 }
 
 void Tab2SocketClient::on_pPBsend_clicked()
@@ -80,3 +84,5 @@ void Tab2SocketClient::socketWriteDataSlot(QString strSendData)
 {
     pSocketClient->socketWriteDataSlot(strSendData);
 }
+
+

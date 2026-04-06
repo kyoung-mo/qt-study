@@ -12,7 +12,7 @@ Tab6WebCamera::Tab6WebCamera(QWidget *parent) :
     pQProcess = new QProcess(this);
     pQWebEngineView = new QWebEngineView(this);
 
-    QPixmap pixMap(":/Images/Images/initDisplay_2.png");
+    QPixmap pixMap(":/Images/Images/initDisplay_1.png");
     QGraphicsScene* scene = new QGraphicsScene(ui->pGPView);
     scene->addPixmap(pixMap);
     ui->pGPView->setScene(scene);
@@ -67,7 +67,7 @@ void Tab6WebCamera::camStartSlot(bool bCheck)
             delete oldScene;
         }
         // 새 씬 생성 및 이미지 추가
-        QPixmap pixMap(":/Images/Images/initDisplay_2.png");
+        QPixmap pixMap(":/Images/Images/initDisplay_1.png");
         QGraphicsScene* scene = new QGraphicsScene(ui->pGPView);
         scene->addPixmap(pixMap);
         ui->pGPView->setScene(scene);
@@ -77,6 +77,27 @@ void Tab6WebCamera::camStartSlot(bool bCheck)
 
 void Tab6WebCamera::on_pPBsnapShot_clicked()
 {
-    //wget -O a.jpg http://10.10.16.60:8080/?action=snapshot
+    //wget -O a.jpg http://10.10.16.35:8080/?action=snapshot
+    QPixmap pixmap = pQWebEngineView->grab();
+    QImage image = pixmap.toImage();
+    QString filename = "screenshot.jpg";
+    if(!filename.isEmpty())
+    {
+        if(image.save(filename,"JPG"))
+        {
+            qDebug() << "success to save image" << filename;
+        }
+        else
+        {
+            qDebug() << "failed to save iamge";
+        }
+    }
 }
 
+void Tab6WebCamera::tab6RecvDataSlot(QStringList& recvDataList)
+{
+    if(recvDataList[2] == "SNAPSHOT")
+    {
+        on_pPBsnapShot_clicked();
+    }
+}

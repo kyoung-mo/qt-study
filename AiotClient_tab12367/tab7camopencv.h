@@ -19,7 +19,9 @@ public:
 private slots:
     void on_pPBsnapShot_clicked();
     void on_pPBcamStart_clicked(bool checked);
-    void on_pCBrgb_clicked(bool checked);
+    //void on_pCBrgb_clicked(bool checked);
+
+    void on_pCBrgb_checkStateChanged(const Qt::CheckState &arg1);
 
 private:
     Ui::Tab7CamOpencv *ui;

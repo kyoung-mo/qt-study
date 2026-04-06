@@ -5,6 +5,7 @@
 #include <tab1devicecontrol.h>
 #include <tab2socketclient.h>
 #include <tab3controlpannel.h>
+#include <tab4sensorchart.h>
 #include <tab6webcamera.h>
 #include <tab7camopencv.h>
 
@@ -27,6 +28,7 @@ private:
     Tab1DeviceControl *pTab1DeviceControl;
     Tab2SocketClient *pTab2SocketClient;
     Tab3ControlPannel *pTab3ControlPannel;
+    Tab4SensorChart * pTab4SensorChart;
     Tab6WebCamera *pTab6WebCamera;
     Tab7CamOpencv *pTab7CamOpencv;
 };

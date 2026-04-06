@@ -39,14 +39,14 @@ void Tab3ControlPannel::on_pPBplug_clicked(bool checked)
     if(checked)
     {
         ui->pPBplug->setChecked(true);
-        emit socketSendDataSig("[KYM_LIN]PLUGON");
+        emit socketSendDataSig("[HM_CON]GASON");
 
         ui->pPBplug->setPalette(paletteOn);
     }
     else
     {
         ui->pPBplug->setChecked(false);
-        emit socketSendDataSig("[KYM_LIN]PLUGOFF");
+        emit socketSendDataSig("[HM_CON]GASOFF");
         ui->pPBplug->setPalette(paletteOff);
     }
 }
@@ -63,12 +63,12 @@ void Tab3ControlPannel::tab3RecvDataSlot(QStringList& recvData)
         ui->pPBlamp->setChecked(false);
         ui->pPBlamp->setPalette(paletteOff);
     }
-    else if(recvData[2] == "PLUGON")
+    else if(recvData[2] == "GASON")
     {
         ui->pPBplug->setChecked(true);
         ui->pPBplug->setPalette(paletteOn);
     }
-    else if(recvData[2] == "PLUGOFF")
+    else if(recvData[2] == "GASOFF")
     {
         ui->pPBplug->setChecked(false);
         ui->pPBplug->setPalette(paletteOff);

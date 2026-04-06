@@ -12,12 +12,13 @@ class WebCamThread : public QThread
     Q_OBJECT
     void run();
     int cnt;
+    bool saveFlag;
     string fname;
     QString strColor, strColorPre;
-    Mat frame, frameQt;
+    Mat frame, frameQt, securityFrame;
     QImage qImage;
     QTimer *pQTimer;
-    bool rgbClassifyFlag;
+    bool timerFlag;
     void put_string(Mat &frame, string text, Point pt, int value = -1);
 
 public:
@@ -25,8 +26,12 @@ public:
     bool camViewFlag;
     QLabel *pCamView;
     void snapShot();
-    void rgbTimerStart();
-    void rgbTimerStop();
+    void rgbTimerStart(int);
+    void rgbTimerStop(int);
+    static int CAM_MODE;
+    static int CAM_FUNC_MODE_OFF;
+    static int RGBCLASSIFY_MODE;
+    static int SECURITY_MODE;
 
 private slots:
     void rgbClassifySlot();
