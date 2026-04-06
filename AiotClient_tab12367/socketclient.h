@@ -2,8 +2,8 @@
 #define SOCKETCLIENT_H
 
 #include <QWidget>
-#include <QTcpSocket>
-#include <QHostAddress>
+#include <QTcpSocket> // tcp socket connection's main class?
+#include <QHostAddress> // handling IP Address
 #include <QInputDialog>
 #include <QDebug>
 #include <QMessageBox>
